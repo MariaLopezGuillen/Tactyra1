@@ -1,0 +1,146 @@
+/* CONTENEDOR PRINCIPAL */
+
+.dashboard-container{
+margin:auto;
+padding:20px;
+font-family: 'Inter', sans-serif;
+}
+
+/* HEADER AZUL */
+
+.header{
+background: linear-gradient(135deg,#2563eb,#1e40af);
+color:white;
+padding:25px;
+border-radius:14px;
+text-align:center;
+font-size:18px;
+font-weight:600;
+margin-bottom:20px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* MENU DE ICONOS */
+
+.menu-cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+margin-bottom:20px;
+}
+
+.menu-item{
+text-align:center;
+cursor:pointer;
+transition:0.2s;
+}
+
+.menu-item i{
+font-size:22px;
+color:#2563eb;
+display:block;
+margin-bottom:6px;
+}
+
+.menu-item p{
+font-size:12px;
+font-weight:500;
+}
+
+.menu-item:hover{
+transform:translateY(-3px);
+}
+
+/* TITULOS */
+
+.section-title{
+margin-top:20px;
+margin-bottom:10px;
+font-weight:600;
+font-size:16px;
+}
+
+/* TARJETA ACTIVIDAD */
+
+.activity-card{
+background:white;
+padding:18px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+margin-bottom:20px;
+}
+
+.activity-header{
+font-weight:600;
+margin-bottom:10px;
+}
+
+/* PROGRESO */
+
+.progress{
+background:#e5e7eb;
+border-radius:20px;
+height:8px;
+overflow:hidden;
+margin-top:8px;
+}
+
+.progress-bar{
+height:8px;
+border-radius:20px;
+background:linear-gradient(90deg,#facc15,#f59e0b);
+}
+
+.progress-bar.bg-info{
+background:linear-gradient(90deg,#3b82f6,#2563eb);
+}
+
+/* TEXTO INFO */
+
+.activity-info{
+display:flex;
+justify-content:space-between;
+font-size:13px;
+margin-top:10px;
+color:#6b7280;
+}
+
+/* OBJETIVOS */
+
+.objective{
+margin-bottom:15px;
+}
+
+/* BOTON PRINCIPAL */
+
+.start-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:linear-gradient(135deg,#2563eb,#1e40af);
+color:white;
+font-weight:600;
+font-size:15px;
+cursor:pointer;
+transition:0.2s;
+}
+
+.start-btn:hover{
+transform:scale(1.02);
+box-shadow:0 6px 15px rgba(37,99,235,0.4);
+}
+
+/* RESPONSIVE */
+
+@media (max-width:500px){
+
+.menu-cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+}

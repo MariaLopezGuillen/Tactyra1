@@ -17,12 +17,9 @@ El proyecto utiliza **Laravel**, **MySQL**, **Java (Spring Boot)** y tecnología
 
 ## 🧩 Tecnologías utilizadas
 
-- **Backend:** Laravel 10  
-- **Microservicio de análisis:** Java Spring Boot  
+- **Backend:** Laravel 12    
 - **Base de datos:** MySQL  
 - **Frontend:** HTML, CSS, JS (Canvas + Charts)  
-- **Extras:** Chart.js para visualización de métricas  
-
 ---
 
 ## 🚀 Funcionalidades principales

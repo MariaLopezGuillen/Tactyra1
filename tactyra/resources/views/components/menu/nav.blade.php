@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
 <script src="{{ asset('js/nav.js') }}"></script>
+
 <nav class="navbar-tactyra">
     <div class="nav-container">
 

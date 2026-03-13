@@ -1,21 +1,63 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\DashboardController;
 
-Route::redirect('/', '/login');
+/*
+|--------------------------------------------------------------------------
+| LANDING
+|--------------------------------------------------------------------------
+*/
 
-Route::middleware('auth')->group(function () {
+Route::view('/', 'welcome');
 
-    Route::view('dashboard', 'dashboard')
-        ->middleware('verified')
+
+/*
+|--------------------------------------------------------------------------
+| ZONA PRIVADA
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth','verified'])->group(function () {
+
+    /*
+    | DASHBOARD
+    */
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 
-    Route::view('profile', 'profile')
+
+    /*
+    | PERFIL
+    */
+
+    Route::view('/profile', 'profile')
         ->name('profile');
 
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-        ->name('logout');
+
+    /*
+    | JUGADORES
+    */
+
+    Route::resource('players', PlayerController::class);
+
+
+    /*
+    | EQUIPOS
+    */
+
+    Route::resource('teams', TeamController::class);
+
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| AUTH
+|--------------------------------------------------------------------------
+*/
 
 require __DIR__.'/auth.php';

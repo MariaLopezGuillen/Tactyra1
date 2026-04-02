@@ -1,94 +1,128 @@
 <x-app-layout>
 
-<div class="max-w-4xl mx-auto p-6">
+<link rel="stylesheet" href="{{ asset('css/players.css') }}">
 
-<h1 class="text-2xl font-bold mb-6">
-Añadir jugador
-</h1>
+<div class="dashboard-page">
 
-<form action="{{ route('players.store') }}" method="POST">
+    <div class="tactyra-container">
 
-@csrf
+        <div class="form-card">
 
-<div class="grid grid-cols-2 gap-4">
+            <h1 class="form-title">Añadir jugador</h1>
 
-<div>
-<label>Nombre</label>
-<input type="text" name="name" class="w-full border rounded p-2">
+            <form action="{{ route('players.store') }}" method="POST">
+                @csrf
+
+                <!-- GRID PRINCIPAL -->
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" name="name" placeholder="Ej: Juan Pérez">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Club</label>
+                        <input type="text" name="club" placeholder="Ej: Sevilla FC">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Categoría</label>
+                        <select name="category">
+                            <option>U12</option>
+                            <option>U14</option>
+                            <option>U16</option>
+                            <option>U18</option>
+                            <option>Senior</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Posición</label>
+                        <select name="position">
+                            <option>Portero</option>
+                            <option>Defensa</option>
+                            <option>Mediocampo</option>
+                            <option>Delantero</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Edad</label>
+                        <input type="number" name="age" placeholder="Ej: 18">
+                    </div>
+
+                </div>
+
+                <!-- HABILIDADES -->
+                <h2 class="form-subtitle">Habilidades</h2>
+
+<div class="skills-fifa">
+
+    @foreach([
+        'speed' => 'Velocidad',
+        'passing' => 'Pase',
+        'shooting' => 'Tiro',
+        'defense' => 'Defensa',
+        'physical' => 'Físico'
+    ] as $name => $label)
+
+        <div class="skill-item">
+
+            <div class="skill-header">
+                <span>{{ $label }}</span>
+                <span id="{{ $name }}Value">50</span>
+            </div>
+
+            <input 
+                type="range" 
+                name="{{ $name }}" 
+                min="0" 
+                max="100" 
+                value="50"
+                class="skill-slider"
+                oninput="updateSkill(this, '{{ $name }}Value')"
+            >
+
+        </div>
+
+    @endforeach
+
 </div>
+                <!-- BOTÓN -->
+                <button class="btn-submit">
+                    Guardar jugador
+                </button>
 
-<div>
-<label>Club</label>
-<input type="text" name="club" class="w-full border rounded p-2">
-</div>
+            </form>
 
-<div>
-<label>Categoría</label>
-<select name="category" class="w-full border rounded p-2">
-<option>U12</option>
-<option>U14</option>
-<option>U16</option>
-<option>U18</option>
-<option>Senior</option>
-</select>
-</div>
+        </div>
 
-<div>
-<label>Posición</label>
-<select name="position" class="w-full border rounded p-2">
-<option>Portero</option>
-<option>Defensa</option>
-<option>Mediocampo</option>
-<option>Delantero</option>
-</select>
-</div>
+    </div>
+<script>
 
-<div>
-<label>Edad</label>
-<input type="number" name="age" class="w-full border rounded p-2">
-</div>
+function updateSkill(slider, valueId) {
 
-</div>
+    let value = slider.value;
+    let display = document.getElementById(valueId);
 
-<h2 class="text-xl font-bold mt-6">
-Habilidades
-</h2>
+    display.innerText = value;
 
-<div class="grid grid-cols-5 gap-4 mt-4">
+    // reset clases
+    display.classList.remove('skill-low', 'skill-mid', 'skill-high');
 
-<div>
-<label>Velocidad</label>
-<input type="number" name="speed" class="w-full border rounded p-2">
-</div>
+    // colores tipo FIFA
+    if (value < 40) {
+        display.classList.add('skill-low');
+    } else if (value < 70) {
+        display.classList.add('skill-mid');
+    } else {
+        display.classList.add('skill-high');
+    }
 
-<div>
-<label>Pase</label>
-<input type="number" name="passing" class="w-full border rounded p-2">
-</div>
+}
 
-<div>
-<label>Tiro</label>
-<input type="number" name="shooting" class="w-full border rounded p-2">
-</div>
-
-<div>
-<label>Defensa</label>
-<input type="number" name="defense" class="w-full border rounded p-2">
-</div>
-
-<div>
-<label>Físico</label>
-<input type="number" name="physical" class="w-full border rounded p-2">
-</div>
-
-</div>
-
-<button class="bg-blue-600 text-white px-6 py-2 rounded mt-6">
-Guardar jugador
-</button>
-
-</form>
-
+</script>
 </div>
 
 </x-app-layout>

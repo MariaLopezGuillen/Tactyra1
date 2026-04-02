@@ -2,71 +2,35 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AttendanceController;
 
-/*
-|--------------------------------------------------------------------------
-| LANDING
-|--------------------------------------------------------------------------
-*/
-
 Route::view('/', 'welcome');
 
+Route::middleware(['auth', 'verified'])->group(function () {
 
-/*
-|--------------------------------------------------------------------------
-| ZONA PRIVADA
-|--------------------------------------------------------------------------
-*/
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::middleware(['auth','verified'])->group(function () {
+    Route::view('/profile', 'profile')->name('profile');
 
-    /*
-    | Dashboard
-    */
-
-    Route::get('/dashboard', [DashboardController::class, 'index'])
-        ->name('dashboard');
-
-
-    /*
-    | Perfil
-    */
-
-    Route::view('/profile', 'profile')
-        ->name('profile');
-
-
-    /*
-    | CRUD jugadores
-    */
-
+    // ✅ PLAYERS (ESTO ES LO QUE FALTABA)
     Route::resource('players', PlayerController::class);
 
+    // TRAINING
+    Route::post('/training-days', [TrainingController::class, 'store'])
+        ->name('training.store');
 
-    /*
-    | Equipos
-    */
-
+    // TEAMS
     Route::resource('teams', TeamController::class);
 
-
-    /*
-    | ASISTENCIA ENTRENAMIENTOS
-    */
+    // ATTENDANCE
+    Route::get('/attendance', [AttendanceController::class, 'index'])
+        ->name('attendance.index');
 
     Route::post('/attendance', [AttendanceController::class, 'store'])
         ->name('attendance.store');
-
 });
 
-
-/*
-|--------------------------------------------------------------------------
-| AUTH
-|--------------------------------------------------------------------------
-*/
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

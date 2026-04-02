@@ -1,20 +1,22 @@
 /* ========================= */
-/* FONDO GENERAL */
+/* BASE */
 /* ========================= */
 
 body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:#0b1e3a;
-color:#e6edf3;
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:#0b1e3a;
+    color:#e6edf3;
 }
 
-/* FONDO DASHBOARD */
+/* ========================= */
+/* DASHBOARD */
+/* ========================= */
 
 .dashboard-page{
-background:#0b1e3a;
-min-height:100vh;
-padding-bottom:50px;
+    background:#0b1e3a;
+    min-height:100vh;
+    padding-bottom:50px;
 }
 
 /* ========================= */
@@ -22,9 +24,9 @@ padding-bottom:50px;
 /* ========================= */
 
 .tactyra-container{
-max-width:1300px;
-margin:auto;
-padding:40px;
+    max-width:1300px;
+    margin:auto;
+    padding:40px;
 }
 
 /* ========================= */
@@ -32,10 +34,10 @@ padding:40px;
 /* ========================= */
 
 .dashboard-top{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-margin-bottom:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-bottom:30px;
 }
 
 /* ========================= */
@@ -43,11 +45,11 @@ margin-bottom:30px;
 /* ========================= */
 
 .card{
-background:#132c52;
-padding:30px;
-border-radius:12px;
-box-shadow:0 15px 35px rgba(0,0,0,0.35);
-border:1px solid rgba(255,255,255,0.05);
+    background:#132c52;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.05);
 }
 
 /* ========================= */
@@ -55,10 +57,10 @@ border:1px solid rgba(255,255,255,0.05);
 /* ========================= */
 
 .card h2{
-margin-bottom:20px;
-font-size:22px;
-font-weight:600;
-color:white;
+    margin-bottom:20px;
+    font-size:22px;
+    font-weight:600;
+    color:white;
 }
 
 /* ========================= */
@@ -67,82 +69,58 @@ color:white;
 
 .card input,
 .card select{
-
-width:100%;
-padding:12px;
-margin-bottom:12px;
-
-background:#0b1e3a;
-
-border:1px solid rgba(255,255,255,0.08);
-
-border-radius:8px;
-
-color:white;
-
-font-size:14px;
-
-transition:0.2s;
-
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    background:#0b1e3a;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:8px;
+    color:white;
+    font-size:14px;
+    transition:0.2s;
 }
 
 .card input::placeholder{
-color:#9ca3af;
+    color:#9ca3af;
 }
 
 .card input:focus,
 .card select:focus{
-
-outline:none;
-
-border-color:#24b04a;
-
-box-shadow:0 0 0 2px rgba(36,176,74,0.3);
-
+    outline:none;
+    border-color:#24b04a;
+    box-shadow:0 0 0 2px rgba(36,176,74,0.3);
 }
 
 /* ========================= */
-/* GRID HABILIDADES */
+/* HABILIDADES */
 /* ========================= */
 
 .skills{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
 
 /* ========================= */
-/* BOTON GUARDAR */
+/* BOTON */
 /* ========================= */
 
 .btn-green{
-
-background:#24b04a;
-color:white;
-border:none;
-
-padding:13px;
-
-width:100%;
-
-border-radius:8px;
-
-font-weight:600;
-
-cursor:pointer;
-
-transition:0.25s;
-
+    background:#24b04a;
+    color:white;
+    border:none;
+    padding:13px;
+    width:100%;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.25s;
 }
 
 .btn-green:hover{
-
-background:#1f9a41;
-
-transform:translateY(-2px);
-
-box-shadow:0 8px 20px rgba(36,176,74,0.4);
-
+    background:#1f9a41;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(36,176,74,0.4);
 }
 
 /* ========================= */
@@ -150,189 +128,23 @@ box-shadow:0 8px 20px rgba(36,176,74,0.4);
 /* ========================= */
 
 .stat-box{
-
-background:linear-gradient(135deg,#24b04a,#1f9a41);
-
-color:white;
-
-padding:25px;
-
-border-radius:10px;
-
-text-align:center;
-
-box-shadow:0 10px 30px rgba(36,176,74,0.4);
-
+    background:linear-gradient(135deg,#24b04a,#1f9a41);
+    color:white;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(36,176,74,0.4);
 }
 
 .stat-box p{
-font-size:15px;
-opacity:0.9;
+    font-size:15px;
+    opacity:0.9;
 }
 
 .stat-box h3{
-
-font-size:38px;
-
-margin-top:10px;
-
-font-weight:700;
-
-}
-
-/* ========================= */
-/* TABLA */
-/* ========================= */
-
-.table-wrapper{
-overflow-x:auto;
-}
-
-table{
-
-width:100%;
-border-collapse:collapse;
-
-background:#132c52;
-
-border-radius:10px;
-
-overflow:hidden;
-
-}
-
-/* HEADER */
-
-thead{
-
-background:#24b04a;
-
-color:white;
-
-}
-
-th{
-
-padding:14px;
-
-font-size:14px;
-
-font-weight:600;
-
-}
-
-/* CELDAS */
-
-td{
-
-padding:14px;
-
-border-bottom:1px solid rgba(255,255,255,0.05);
-
-text-align:center;
-
-}
-
-/* HOVER FILA */
-
-tbody tr:hover{
-
-background:#1a3a6b;
-
-transition:0.2s;
-
-}
-
-/* ========================= */
-/* MEDIA JUGADOR */
-/* ========================= */
-
-.overall{
-
-font-weight:bold;
-
-color:#24b04a;
-
-font-size:18px;
-
-}
-
-/* ========================= */
-/* ACCIONES */
-/* ========================= */
-
-.actions{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:10px;
-
-}
-
-/* ========================= */
-/* BOTONES ICONOS */
-/* ========================= */
-
-.btn-icon{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-width:36px;
-
-height:36px;
-
-border-radius:8px;
-
-color:white;
-
-font-size:16px;
-
-border:none;
-
-cursor:pointer;
-
-transition:0.2s;
-
-}
-
-/* EDITAR */
-
-.btn-icon.edit{
-
-background:#3498db;
-
-}
-
-.btn-icon.edit:hover{
-
-background:#2c80b9;
-
-transform:scale(1.1);
-
-}
-
-/* ELIMINAR */
-
-.btn-icon.delete{
-
-background:#e74c3c;
-
-}
-
-.btn-icon.delete:hover{
-
-background:#c0392b;
-
-transform:scale(1.1);
-
+    font-size:38px;
+    margin-top:10px;
+    font-weight:700;
 }
 
 /* ========================= */
@@ -341,185 +153,86 @@ transform:scale(1.1);
 
 .modal,
 .delete-modal{
-
-display:none;
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,0.75);
-color: #000;
-justify-content:center;
-align-items:center;
-
-z-index:1000;
-
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
 }
 
 /* CAJA MODAL */
 
 .modal-content,
 .delete-modal-box{
-
-background:#132c52;
-
-padding:35px;
-
-border-radius:12px;
-
-width:420px;
-
-text-align:center;
-
-box-shadow:0 15px 40px rgba(0,0,0,0.5);
-
-animation:modalFade 0.25s ease;
-
+    background:#132c52;
+    padding:35px;
+    border-radius:12px;
+    width:420px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.5);
+    animation:modalFade 0.25s ease;
 }
 
 /* BOTON CERRAR */
 
 .close{
-
-position:absolute;
-
-top:15px;
-right:20px;
-
-font-size:22px;
-
-cursor:pointer;
-
-color:white;
-
-}
-
-/* ICONO ELIMINAR */
-
-.delete-icon{
-
-font-size:42px;
-
-color:#24b04a;
-
-margin-bottom:10px;
-
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:22px;
+    cursor:pointer;
+    color:white;
 }
 
 /* BOTONES MODAL */
 
 .delete-actions{
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-margin-top:20px;
-
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
 }
 
 .btn-cancel{
-
-background:#374151;
-
-color:white;
-
-border:none;
-
-padding:10px 20px;
-
-border-radius:6px;
-
-cursor:pointer;
-
+    background:#374151;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:6px;
+    cursor:pointer;
 }
 
 .btn-delete{
-
-background:#24b04a;
-
-color:white;
-
-border:none;
-
-padding:10px 20px;
-
-border-radius:6px;
-
-cursor:pointer;
-
+    background:#24b04a;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:6px;
+    cursor:pointer;
 }
 
 .btn-delete:hover{
-background:#1f9a41;
+    background:#1f9a41;
 }
 
 /* ========================= */
-/* ANIMACION MODAL */
+/* ANIMACION */
 /* ========================= */
 
 @keyframes modalFade{
-
-from{
-opacity:0;
-transform:scale(0.9);
-}
-
-to{
-opacity:1;
-transform:scale(1);
-}
-
-}
-
-/* ========================= */
-/* TABLA ASISTENCIA */
-/* ========================= */
-
-.attendance-table{
-
-width:100%;
-
-border-collapse:collapse;
-
-margin-top:15px;
-
-}
-
-.attendance-table th{
-
-background:#24b04a;
-
-padding:12px;
-
-color:white;
-
-}
-
-.attendance-table td{
-
-text-align:center;
-
-padding:12px;
-
-border-bottom:1px solid rgba(255,255,255,0.05);
-
-}
-
-.attendance-table input{
-
-width:18px;
-height:18px;
-
-cursor:pointer;
-
+    from{
+        opacity:0;
+        transform:scale(0.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 /* ========================= */
@@ -527,17 +240,7 @@ cursor:pointer;
 /* ========================= */
 
 @media(max-width:900px){
-
-.dashboard-top{
-grid-template-columns:1fr;
-}
-
-}
-.dashboard-page{
-background:#0b1e3a;
-min-height:100vh;
-}
-
-.min-h-screen{
-background:#0b1e3a !important;
+    .dashboard-top{
+        grid-template-columns:1fr;
+    }
 }

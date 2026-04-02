@@ -15,13 +15,17 @@
                     </a>
                 </div>
 
-                <!-- Links -->
+                <!-- LINKS -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
 
+                    <!-- INICIO -->
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-
                         {{ __('Inicio') }}
+                    </x-nav-link>
 
+                    <!-- JUGADORES -->
+                    <x-nav-link :href="route('players.index')" :active="request()->routeIs('players.*')">
+                        {{ __('Jugadores') }}
                     </x-nav-link>
 
                 </div>
@@ -60,7 +64,7 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
-                        <!-- LOGOUT DESKTOP -->
+                        <!-- LOGOUT -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -109,10 +113,14 @@
 
         <div class="pt-2 pb-3 space-y-1">
 
+            <!-- DASHBOARD -->
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
 
+            <!-- JUGADORES -->
+            <x-responsive-nav-link :href="route('players.index')" :active="request()->routeIs('players.*')">
+                {{ __('Jugadores') }}
             </x-responsive-nav-link>
 
         </div>
@@ -137,8 +145,7 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                <!-- LOGOUT MOVIL -->
-
+                <!-- LOGOUT -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 

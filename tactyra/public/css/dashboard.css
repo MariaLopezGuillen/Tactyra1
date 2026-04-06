@@ -3,41 +3,40 @@
 /* ========================= */
 
 body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background:#0b1e3a;
-    color:#e6edf3;
+margin:0;
+font-family: 'Segoe UI', sans-serif;
 }
-
-/* ========================= */
-/* DASHBOARD */
-/* ========================= */
 
 .dashboard-page{
-    background:#0b1e3a;
-    min-height:100vh;
-    padding-bottom:50px;
+background: linear-gradient(135deg,#0b1e3a,#0a254a);
+min-height:100vh;
+padding:40px 20px;
+color:white;
 }
-
-/* ========================= */
-/* CONTENEDOR */
-/* ========================= */
 
 .tactyra-container{
-    max-width:1300px;
-    margin:auto;
-    padding:40px;
+max-width:1200px;
+margin:auto;
 }
 
 /* ========================= */
-/* GRID SUPERIOR */
+/* TITLE */
 /* ========================= */
 
-.dashboard-top{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-    margin-bottom:30px;
+.title{
+font-size:28px;
+margin-bottom:30px;
+font-weight:600;
+}
+
+/* ========================= */
+/* GRID */
+/* ========================= */
+
+.grid{
+display:grid;
+grid-template-columns: 1.5fr 1fr;
+gap:25px;
 }
 
 /* ========================= */
@@ -45,194 +44,134 @@ body{
 /* ========================= */
 
 .card{
-    background:#132c52;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.35);
-    border:1px solid rgba(255,255,255,0.05);
+background: rgba(19,44,82,0.9);
+padding:25px;
+border-radius:16px;
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+backdrop-filter: blur(8px);
+}
+
+.card h3{
+margin-bottom:20px;
+font-size:18px;
+color:#cbd5e1;
 }
 
 /* ========================= */
-/* TITULOS */
+/* PLAYER STATUS */
 /* ========================= */
 
-.card h2{
-    margin-bottom:20px;
-    font-size:22px;
-    font-weight:600;
-    color:white;
+.player-row{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:18px;
 }
 
-/* ========================= */
-/* FORMULARIO */
-/* ========================= */
-
-.card input,
-.card select{
-    width:100%;
-    padding:12px;
-    margin-bottom:12px;
-    background:#0b1e3a;
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:8px;
-    color:white;
-    font-size:14px;
-    transition:0.2s;
+.player-info{
+display:flex;
+align-items:center;
+gap:10px;
+min-width:150px;
 }
 
-.card input::placeholder{
-    color:#9ca3af;
+.avatar{
+width:38px;
+height:38px;
+border-radius:50%;
+background:linear-gradient(135deg,#3b82f6,#6366f1);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
 }
 
-.card input:focus,
-.card select:focus{
-    outline:none;
-    border-color:#24b04a;
-    box-shadow:0 0 0 2px rgba(36,176,74,0.3);
+/* BARRA */
+
+.progress{
+flex:1;
+background:#1e293b;
+height:8px;
+border-radius:10px;
+overflow:hidden;
 }
 
-/* ========================= */
-/* HABILIDADES */
-/* ========================= */
-
-.skills{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
+.bar{
+height:100%;
+background: linear-gradient(90deg,#22c55e,#16a34a);
+transition:0.4s;
 }
 
-/* ========================= */
-/* BOTON */
-/* ========================= */
-
-.btn-green{
-    background:#24b04a;
-    color:white;
-    border:none;
-    padding:13px;
-    width:100%;
-    border-radius:8px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.25s;
-}
-
-.btn-green:hover{
-    background:#1f9a41;
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(36,176,74,0.4);
+.percent{
+width:50px;
+text-align:right;
+font-weight:bold;
+color:#22c55e;
 }
 
 /* ========================= */
-/* ESTADISTICAS */
+/* FORM NOTAS */
 /* ========================= */
 
-.stat-box{
-    background:linear-gradient(135deg,#24b04a,#1f9a41);
-    color:white;
-    padding:25px;
-    border-radius:10px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(36,176,74,0.4);
+.input{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border-radius:10px;
+border:none;
+background:#0b1e3a;
+color:white;
+outline:none;
 }
 
-.stat-box p{
-    font-size:15px;
-    opacity:0.9;
+.input:focus{
+box-shadow:0 0 0 2px #22c55e;
 }
 
-.stat-box h3{
-    font-size:38px;
-    margin-top:10px;
-    font-weight:700;
+/* BOTÓN */
+
+.btn-submit{
+width:100%;
+padding:14px;
+background: linear-gradient(135deg,#22c55e,#16a34a);
+border:none;
+border-radius:10px;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
 }
 
-/* ========================= */
-/* MODALES */
-/* ========================= */
-
-.modal,
-.delete-modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.75);
-    justify-content:center;
-    align-items:center;
-    z-index:1000;
-}
-
-/* CAJA MODAL */
-
-.modal-content,
-.delete-modal-box{
-    background:#132c52;
-    padding:35px;
-    border-radius:12px;
-    width:420px;
-    text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,0.5);
-    animation:modalFade 0.25s ease;
-}
-
-/* BOTON CERRAR */
-
-.close{
-    position:absolute;
-    top:15px;
-    right:20px;
-    font-size:22px;
-    cursor:pointer;
-    color:white;
-}
-
-/* BOTONES MODAL */
-
-.delete-actions{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:20px;
-}
-
-.btn-cancel{
-    background:#374151;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-.btn-delete{
-    background:#24b04a;
-    color:white;
-    border:none;
-    padding:10px 20px;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-.btn-delete:hover{
-    background:#1f9a41;
+.btn-submit:hover{
+transform: translateY(-2px);
+box-shadow:0 10px 20px rgba(34,197,94,0.3);
 }
 
 /* ========================= */
-/* ANIMACION */
+/* NOTES */
 /* ========================= */
 
-@keyframes modalFade{
-    from{
-        opacity:0;
-        transform:scale(0.9);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+.note{
+background:#0b1e3a;
+padding:12px;
+border-radius:10px;
+margin-top:10px;
+border-left:4px solid #22c55e;
+}
+
+.note strong{
+color:#22c55e;
+}
+
+/* ========================= */
+/* SEPARADOR */
+/* ========================= */
+
+hr{
+border:none;
+height:1px;
+background:rgba(255,255,255,0.1);
+margin:20px 0;
 }
 
 /* ========================= */
@@ -240,7 +179,9 @@ body{
 /* ========================= */
 
 @media(max-width:900px){
-    .dashboard-top{
-        grid-template-columns:1fr;
-    }
+
+.grid{
+grid-template-columns:1fr;
+}
+
 }

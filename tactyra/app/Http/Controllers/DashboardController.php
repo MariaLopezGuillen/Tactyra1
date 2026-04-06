@@ -2,29 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Player;
-   use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Note;
 
 class DashboardController extends Controller
 {
+    public function index()
+    {
+        $players = Player::with('notes')->get();
 
-public function index(Request $request)
-{
-    // 👉 coger el club desde la URL
-    $clubSeleccionado = $request->get('club');
+        // 📊 SIMULACIÓN DE ESTADO (puedes hacerlo real luego)
+        foreach ($players as $player) {
+            $player->status = rand(70, 100);
+        }
 
-    // 👉 clubes únicos (para los botones)
-    $clubs = Player::select('club')
-        ->whereNotNull('club')
-        ->distinct()
-        ->pluck('club');
+        $notes = Note::with('player')->latest()->take(5)->get();
 
-    // 👉 FILTRO
-    $players = Player::when($clubSeleccionado, function ($query) use ($clubSeleccionado) {
-        $query->where('club', $clubSeleccionado);
-    })->latest()->get();
+        return view('dashboard', compact('players', 'notes'));
+    }
 
-    return view('dashboard', compact('players', 'clubs'));
-}
+    public function storeNote(Request $request)
+    {
+        $request->validate([
+            'player_id' => 'required|exists:players,id',
+            'content' => 'required'
+        ]);
+
+        Note::create($request->all());
+
+        return back()->with('success', 'Nota guardada');
+    }
 }

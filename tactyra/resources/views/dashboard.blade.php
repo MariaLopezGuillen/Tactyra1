@@ -1,100 +1,84 @@
 <x-app-layout>
 
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
 
-    <div class="dashboard-page">
+<div class="dashboard-page">
+<div class="tactyra-container">
 
-        <div class="tactyra-container">
+<h2 class="title">⚽ Gestión del Equipo</h2>
 
-            <div class="dashboard-top">
+<div class="grid">
 
-                <!-- FORMULARIO -->
-                <div class="card">
+<!-- ===================== -->
+<!-- JUGADORAS + ESTADO -->
+<!-- ===================== -->
 
-                    <h2>Añadir jugador</h2>
+<div class="card">
 
-                    <form action="{{ route('players.store') }}" method="POST">
-                        @csrf
+<h3>📊 Estado jugadoras</h3>
 
-                        <input type="text" name="name" placeholder="Nombre jugador" required>
-                        <input type="number" name="number" placeholder="Dorsal (opcional)">
+@foreach($players as $player)
 
-                        <!-- CLUB -->
-                        <input type="text" name="club" placeholder="Club" list="clubs" required>
+<div class="player-row">
 
-                        <datalist id="clubs">
-                            @foreach ($clubs as $club)
-                                <option value="{{ $club }}"></option>
-                            @endforeach
-                        </datalist>
+<div class="player-info">
+    <div class="avatar">{{ strtoupper(substr($player->name,0,1)) }}</div>
+    <span>{{ $player->name }}</span>
+</div>
 
-                        <select name="category">
-                            <option value="">Categoría</option>
-                            <option>Baby</option>
-                            <option>Prebenjamín</option>
-                            <option>Benjamín</option>
-                            <option>Alevín</option>
-                            <option>Infantil</option>
-                            <option>Cadete</option>
-                            <option>Juvenil</option>
-                            <option>Senior</option>
-                        </select>
+<div class="progress">
+    <div class="bar" style="width: {{ $player->status }}%"></div>
+</div>
 
-                        <select name="position" required>
-                            <option value="">Posición</option>
-                            <option>Portero</option>
-                            <option>Lateral Derecho</option>
-                            <option>Lateral Izquierdo</option>
-                            <option>Defensa Central</option>
-                            <option>Mediocentro</option>
-                            <option>Mediapunta</option>
-                            <option>Extremo Derecho</option>
-                            <option>Extremo Izquierdo</option>
-                            <option>Delantero</option>
-                        </select>
+<span class="percent">{{ $player->status }}%</span>
 
-                        <input type="number" name="age" placeholder="Edad">
+</div>
 
-                        <h3>Habilidades</h3>
+@endforeach
 
-                        <div class="skills">
-                            <input type="number" name="speed" placeholder="Velocidad">
-                            <input type="number" name="passing" placeholder="Pase">
-                            <input type="number" name="shooting" placeholder="Tiro">
-                            <input type="number" name="defense" placeholder="Defensa">
-                            <input type="number" name="physical" placeholder="Físico">
-                        </div>
+</div>
 
-                        <button type="submit" class="btn-green">
-                            Guardar jugador
-                        </button>
+<!-- ===================== -->
+<!-- NOTAS -->
+<!-- ===================== -->
 
-                    </form>
+<div class="card">
 
-                </div>
+<h3>📝 Notas del partido</h3>
 
-                <!-- ESTADÍSTICAS -->
-                <div class="card">
+<form action="{{ route('notes.store') }}" method="POST">
+@csrf
 
-                    <h2>Estadísticas</h2>
+<select name="player_id" class="input">
+    @foreach($players as $player)
+        <option value="{{ $player->id }}">{{ $player->name }}</option>
+    @endforeach
+</select>
 
-                    <div class="stat-box">
-                        <p>Total jugadores</p>
-                        <h3>{{ $players->count() }}</h3>
-                    </div>
+<textarea name="content" class="input" placeholder="Escribe una mejora..."></textarea>
 
-                </div>
+<button class="btn-submit">Guardar nota</button>
 
-            </div>
+</form>
 
-                    </thead>
+<hr>
 
-                </table>
+@foreach($notes as $note)
 
-            </div>
+<div class="note">
 
-        </div>
+<strong>{{ $note->player->name }}</strong>
+<p>{{ $note->content }}</p>
 
-    </div>
+</div>
+
+@endforeach
+
+</div>
+
+</div>
+
+</div>
+</div>
 
 </x-app-layout>

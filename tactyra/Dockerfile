@@ -2,35 +2,35 @@ FROM php:8.2-cli
 
 WORKDIR /app
 
-# Instalar dependencias
+# Instalar dependencias del sistema (incluye SQLite dev)
 RUN apt-get update && apt-get install -y \
-    git unzip libzip-dev zip curl sqlite3
+    git unzip libzip-dev zip curl sqlite3 libsqlite3-dev libonig-dev libxml2-dev
 
-# Extensiones PHP necesarias
-RUN docker-php-ext-install pdo pdo_sqlite zip
+# Instalar extensiones PHP necesarias
+RUN docker-php-ext-install pdo pdo_sqlite zip mbstring bcmath
 
-# Composer
+# Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copiar proyecto
 COPY . .
 
-# Instalar Laravel
+# Instalar dependencias de Laravel
 RUN composer install --no-dev --optimize-autoloader
 
 # Crear base de datos SQLite
 RUN mkdir -p /tmp && touch /tmp/database.sqlite
 
-# Permisos
+# Permisos necesarios
 RUN chmod -R 777 storage bootstrap/cache
 
-# Optimizar Laravel
+# Optimizar Laravel (no rompe si falla)
 RUN php artisan config:cache || true
 RUN php artisan route:cache || true
 RUN php artisan view:cache || true
 
-# Puerto
+# Exponer puerto
 EXPOSE 10000
 
-# Arranque
+# Arrancar Laravel
 CMD php artisan serve --host=0.0.0.0 --port=10000
